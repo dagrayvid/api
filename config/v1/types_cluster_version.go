@@ -225,7 +225,7 @@ type UpdateHistory struct {
 type ClusterID string
 
 // ClusterVersionCapability enumerates optional, core cluster components.
-// +kubebuilder:validation:Enum=openshift-samples;baremetal;marketplace;Console;Insights;Storage;CSISnapshot
+// +kubebuilder:validation:Enum=openshift-samples;baremetal;marketplace;Console;Insights;Storage;CSISnapshot;node-tuning
 type ClusterVersionCapability string
 
 const (
@@ -268,6 +268,12 @@ const (
 	// VolumeSnapshot CRD objects and manages the creation and deletion
 	// lifecycle of volume snapshots
 	ClusterVersionCapabilityCSISnapshot ClusterVersionCapability = "CSISnapshot"
+
+	// ClusterVersionCapabilityNodeTuning manages the Node Tuning Operator
+	// which is responsible for watching the Tuned and Profile CRD
+	// objects and manages the containerized TuneD daemon which controls
+	// system level tuning of Nodes
+	ClusterVersionCapabilityNodeTuning ClusterVersionCapability = "node-tuning"
 )
 
 // KnownClusterVersionCapabilities includes all known optional, core cluster components.
@@ -324,6 +330,7 @@ var ClusterVersionCapabilitySets = map[ClusterVersionCapabilitySet][]ClusterVers
 		ClusterVersionCapabilityStorage,
 		ClusterVersionCapabilityOpenShiftSamples,
 		ClusterVersionCapabilityCSISnapshot,
+		ClusterVersionCapabilityNodeTuning,
 	},
 	ClusterVersionCapabilitySetCurrent: {
 		ClusterVersionCapabilityBaremetal,
@@ -333,6 +340,7 @@ var ClusterVersionCapabilitySets = map[ClusterVersionCapabilitySet][]ClusterVers
 		ClusterVersionCapabilityStorage,
 		ClusterVersionCapabilityOpenShiftSamples,
 		ClusterVersionCapabilityCSISnapshot,
+		ClusterVersionCapabilityNodeTuning,
 	},
 }
 

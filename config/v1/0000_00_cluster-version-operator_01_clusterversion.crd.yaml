@@ -74,6 +74,7 @@ spec:
                       - Insights
                       - Storage
                       - CSISnapshot
+                      - node-tuning
                       type: string
                     type: array
                     x-kubernetes-list-type: atomic
@@ -236,6 +237,7 @@ spec:
                       - Insights
                       - Storage
                       - CSISnapshot
+                      - node-tuning
                       type: string
                     type: array
                     x-kubernetes-list-type: atomic
@@ -253,6 +255,7 @@ spec:
                       - Insights
                       - Storage
                       - CSISnapshot
+                      - node-tuning
                       type: string
                     type: array
                     x-kubernetes-list-type: atomic
